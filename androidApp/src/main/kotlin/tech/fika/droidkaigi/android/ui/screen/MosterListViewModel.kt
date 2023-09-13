@@ -18,14 +18,12 @@ import tech.fika.droidkaigi.monsterList.MonsterListState
 class MonsterListViewModel @Inject constructor(
     storeFactory: StoreFactory,
     stateMachine: StateMachine<MonsterListIntent, MonsterListAction, MonsterListState>,
-    savedStateHandle: SavedStateHandle,
 ) : StoreViewModel<MonsterListIntent, MonsterListAction, MonsterListState>() {
     override val store: Store<MonsterListIntent, MonsterListAction, MonsterListState> = storeFactory.create(
         initialState = MonsterListState.Initial,
         processor = stateMachine.processor,
         reducer = stateMachine.reducer,
         middlewares = listOf(
-//            StateSaverMiddleware(stateSaver = DefaultStateSaver(savedStateHandle = savedStateHandle)),
             LoggingMiddleware(logger = DefaultLogger()),
         ),
         coroutineContext = viewModelScope.coroutineContext,
