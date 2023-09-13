@@ -1,0 +1,104 @@
+[versions]
+# Kotlin
+kotlin = "1.9.10"
+coroutines = "1.7.3"
+# Android
+androidGradle = "7.4.2"
+coreKtx = "1.12.0"
+coreSplash = "1.0.1"
+appCompat = "1.6.1"
+lifecycle = "2.6.2"
+activityCompose = "1.7.2"
+# Compose
+composeBom = "2023.09.00"
+composeMaterial3 = "1.2.0-alpha07"
+composeCompiler = "1.5.3"
+# Coil
+coil = "2.2.2"
+# DI
+hilt = "2.48"
+# Macaron
+macaron = "0.1.0"
+# Logging
+timber = "5.0.1"
+kermit = "2.0.0-RC5"
+# Testing
+androidxTest = "1.5.2"
+junit = "4.13.2"
+androidxJunit = "1.1.5"
+turbine = "1.0.0"
+kotest = "5.7.1"
+mockmp = "1.15.0"
+kover = "0.5.1"
+# Tooling
+ktLint = "11.5.1"
+dokka = "1.7.20"
+leakCanary = "2.9.1"
+desugarJdkLibs = "2.0.3"
+
+[libraries]
+# Gradle
+gradle-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+gradle-android = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradle" }
+gradle-hilt = { group = "com.google.dagger", name = "hilt-android-gradle-plugin", version.ref = "hilt" }
+gradle-ktlint = { group = "org.jlleitschuh.gradle", name = "ktlint-gradle", version.ref = "ktLint" }
+gradle-kover = { group = "org.jetbrains.kotlinx", name = "kover", version.ref = "kover" }
+gradle-dokka = { group = "org.jetbrains.dokka", name = "dokka-gradle-plugin", version.ref = "dokka" }
+gradle-mockmp = { group = "org.kodein.mock", name = "mockmp-gradle-plugin", version.ref = "mockmp" }
+# Kotlinx
+kotlinx-coroutinesCore = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-coroutinesAndroid = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+# Androidx
+androidx-activityCompose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-viewModel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+# Compose
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+compose-runtime = { group = "androidx.compose.runtime", name = "runtime" }
+compose-ui = { group = "androidx.compose.ui", name = "ui" }
+compose-uiGraphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+compose-uiTooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+compose-uiToolingPreview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
+compose-foundationLayout = { group = "androidx.compose.foundation", name = "foundation-layout" }
+compose-material = { group = "androidx.compose.material", name = "material" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "composeMaterial3" }
+test-composeJunit = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+test-composeManifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+# Coil
+coil-core = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
+coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+coil-gif = { group = "io.coil-kt", name = "coil-gif", version.ref = "coil" }
+# Hilt
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+# Macaron
+macaron-core = { group = "tech.fika.macaron", name = "macaron-core", version.ref = "macaron" }
+macaron-statemachine = { group = "tech.fika.macaron", name = "macaron-statemachine", version.ref = "macaron" }
+macaron-logging = { group = "tech.fika.macaron", name = "macaron-logging", version.ref = "macaron" }
+macaron-messaging = { group = "tech.fika.macaron", name = "macaron-messaging", version.ref = "macaron" }
+macaron-statesaver = { group = "tech.fika.macaron", name = "macaron-statesaver", version.ref = "macaron" }
+# Logging
+logging-kermit = { group = "co.touchlab", name = "kermit", version.ref = "kermit" }
+logging-timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+# Test
+test-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.ref = "kotlin" }
+test-turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
+test-kotest = { group = "io.kotest", name = "kotest-assertions-core", version.ref = "kotest" }
+test-coroutinesTest = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
+test-androidxJunit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxJunit" }
+test-androidxTestRunner = { group = "androidx.test", name = "runner", version.ref = "androidxTest" }
+test-androidxTestRules = { group = "androidx.test", name = "rules", version.ref = "androidxTest" }
+# Tooling
+tooling-leakCanary = { group = "com.squareup.leakcanary", name = "leakcanary-android", version.ref = "leakCanary" }
+
+[plugins]
+kotlinMultiplatform = { id = "kotlin-multiplatform" }
+kotlinKapt = { id = "kotlin-kapt" }
+kotlinAndroid = { id = "kotlin-android"}
+androidApp = { id = "com.android.application" }
+androidLibrary = { id = "com.android.library" }
+hilt = { id = "com.google.dagger.hilt.android" }
+kover = { id = "org.jetbrains.kotlinx.kover" }
+mockmp = { id = "org.kodein.mock.mockmp", version.ref = "mockmp" }
+ktlint = { id = "org.jlleitschuh.gradle.ktlint" }
+dokka = { id = "org.jetbrains.dokka" }
