@@ -7,5 +7,5 @@ sealed class MonsterListAction : Action {
     data object Loading : MonsterListAction()
     data class LoadSuccess(val monsterList: List<Monster>) : MonsterListAction()
     data class LoadError(val error: Throwable) : MonsterListAction()
-    data class NavigateMonsterDetails(val monster: Monster) : MonsterListAction(), Action.Event
+    data class NavigateDetails(val monster: Monster) : MonsterListAction(), Action.Event
 }

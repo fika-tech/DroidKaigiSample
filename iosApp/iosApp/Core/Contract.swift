@@ -5,19 +5,15 @@ import shared
 open class Contract<I: Intent, A: Action, S: shared.State>: ObservableObject {
     @Published public private(set) var state: S
     public let dispatch: (I) -> Void
-
+    public var events: some Publisher<A, Never> { eventSubject }
     private let eventSubject = PassthroughSubject<A, Never>()
     private var cancellables: Set<AnyCancellable> = []
 
-    public var eventSignal: some Publisher<A, Never> {
-        eventSubject
-    }
 
     public init(store: Store) {
         self.state = store.currentState as! S
         self.dispatch = { store.dispatch(intent: $0) }
-        AnyCancellable { store.dispose() }
-            .store(in: &cancellables)
+        AnyCancellable { store.dispose() }.store(in: &cancellables)
 
         store.collect { [weak self] newState in
             if let self, let newState = newState as? S {

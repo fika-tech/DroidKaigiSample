@@ -27,7 +27,7 @@ class MonsterListStateMachine(
 
         state<MonsterListState.Stable> {
             process<MonsterListIntent.ClickItem> {
-                emit(MonsterListAction.NavigateMonsterDetails(monster = intent.monster))
+                emit(MonsterListAction.NavigateDetails(monster = intent.monster))
             }
         }
 
@@ -62,9 +62,7 @@ class MonsterListStateMachine(
             process<MonsterListIntent.ClickErrorRetry> {
                 loadMonsterList(offset = 0, monsterRepository = monsterRepository, emit = ::emit)
             }
-            reduce<MonsterListAction.Loading> {
-                MonsterListState.Loading
-            }
+            reduce<MonsterListAction.Loading> { MonsterListState.Loading }
         }
     }
 )

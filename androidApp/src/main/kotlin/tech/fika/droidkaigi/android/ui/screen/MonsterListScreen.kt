@@ -6,7 +6,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material.Divider
+import androidx.compose.material3.Divider
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -37,7 +37,7 @@ fun MonsterListScreen(
 
     contract.handleEvents { action ->
         when (action) {
-            is MonsterListAction.NavigateMonsterDetails -> Timber.d("Handle Navigation")
+            is MonsterListAction.NavigateDetails -> Timber.d("Handle Navigation")
             else -> Unit
         }
     }
