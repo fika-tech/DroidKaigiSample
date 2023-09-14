@@ -9,10 +9,11 @@ kotlin {
         commonMain.dependencies {
             implementations(
                 deps.kotlinx.coroutinesCore,
-                deps.macaron.core,
-                deps.macaron.statemachine,
             )
             apis(
+                deps.macaron.core,
+                deps.macaron.statemachine,
+                deps.macaron.logging,
                 deps.logging.kermit,
             )
         }

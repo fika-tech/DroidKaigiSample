@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material.Divider
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -61,6 +62,7 @@ fun MonsterListContent(state: MonsterListState, dispatch: (MonsterListIntent) ->
                         MonsterListItem(name = monster.name,
                             imageUrl = monster.imageUrl,
                             onClick = { dispatch(MonsterListIntent.ClickItem(monster = monster)) })
+                        Divider()
                     }
                     state.renderItems<MonsterListState.Stable.PageLoading> {
                         item { PageLoadingIndicatorItem() }

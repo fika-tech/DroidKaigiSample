@@ -1,7 +1,7 @@
 package tech.fika.droidkaigi.monsterList
 
-import tech.fika.macaron.statemachine.components.StateMachine
 import tech.fika.droidkaigi.data.repository.MonsterRepository
+import tech.fika.macaron.statemachine.components.StateMachine
 
 class MonsterListStateMachine(
     private val monsterRepository: MonsterRepository,
@@ -61,6 +61,9 @@ class MonsterListStateMachine(
         state<MonsterListState.Error> {
             process<MonsterListIntent.ClickErrorRetry> {
                 loadMonsterList(offset = 0, monsterRepository = monsterRepository, emit = ::emit)
+            }
+            reduce<MonsterListAction.Loading> {
+                MonsterListState.Loading
             }
         }
     }

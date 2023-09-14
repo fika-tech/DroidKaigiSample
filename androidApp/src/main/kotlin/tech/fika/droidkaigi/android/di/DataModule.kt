@@ -11,5 +11,5 @@ import tech.fika.droidkaigi.data.repository.MonsterRepository
 @InstallIn(SingletonComponent::class)
 class DataModule {
     @Provides
-    fun provideMonsterRepository(): MonsterRepository = MockMonsterRepository()
+    fun provideMonsterRepository(): MonsterRepository = MockMonsterRepository(throwErrorRate = 0.3)
 }

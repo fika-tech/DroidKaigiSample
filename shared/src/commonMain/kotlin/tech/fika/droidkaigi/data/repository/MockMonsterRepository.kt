@@ -4,12 +4,16 @@ import kotlinx.coroutines.delay
 import tech.fika.droidkaigi.entities.Monster
 
 class MockMonsterRepository(
-    private val throwInitialError: Boolean,
-    private val throwPagingError: Boolean,
+    private val throwErrorRate: Double? = null,
 ) : MonsterRepository {
     override suspend fun getMonsters(offset: Int, limit: Int): List<Monster> {
+        // Delay to emulate API or database calls
         delay(2_000L)
-        if (throwInitialError || offset > 0 && throwPagingError) throw Throwable("An error has occured")
+        // Randomly throw error based on [throwErrorRate]
+        if (throwErrorRate != null && (0..99).random() < throwErrorRate * 100) {
+            throw Throwable("An error has occurred")
+        }
+        // Return random list of monsters
         return List(limit) { index ->
             val id = offset + index + 1
             val nameLength = (8..20).random()
