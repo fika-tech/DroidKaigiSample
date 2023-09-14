@@ -61,6 +61,9 @@ fun Project.setupKotlinMultiplatform(
             ).forEach {
                 it.binaries.framework {
                     baseName = "shared"
+                    export(deps.macaron.core)
+                    export(deps.macaron.statemachine)
+                    export(deps.macaron.logging)
                 }
             }
         }
